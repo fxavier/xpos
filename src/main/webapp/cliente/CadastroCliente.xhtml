@@ -1,0 +1,51 @@
+<ui:composition template="/WEB-INF/template/Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:o="http://omnifaces.org/ui">
+
+    <ui:define name="titulo">Novo Cliente</ui:define>
+    
+    <ui:define name="corpo">
+    	    
+    	<h:form>
+	    	<h1>Novo Cliente</h1>
+	    	
+	    	<p:messages autoUpdate="true" closable="true" />
+	    	
+	    	<p:toolbar style="margin-top: 20px">
+	    		<p:toolbarGroup>
+	    			<p:button value="Novo" outcome="/cliente/CadastroCliente" />
+	    			<p:commandButton value="Salvar" id="botaoSalvar"
+	    			   action="#{cadastroClienteBean.salvar}"
+	    				/>
+	    		</p:toolbarGroup>
+	    		<p:toolbarGroup align="right">
+	    			<p:button value="Pesquisa" outcome="/cliente/PesquisaClientes" />
+	    		</p:toolbarGroup>
+	    	</p:toolbar>
+	    	
+	    	<p:panelGrid columns="4" id="painel" style="width: 100%; margin-top: 20px"
+	    			columnClasses="rotulo, campo">
+	    		<p:outputLabel value="Nome" for="nome"/>
+	    		<p:inputText id="nome" size="50" maxlength="100" value="#{cadastroClienteBean.cliente.nome}" />	
+	    		<p:outputLabel value="Nuit" for="nuit"/>  	    
+	    		<p:inputText id="nuit" size="20" maxlength="100" value="#{cadastroClienteBean.cliente.nuit}" />	 
+	    		<p:outputLabel value="Pessoa de contacto" for="pcontacto"/>
+	    		<p:inputText id="pcontacto" size="50" maxlength="100" value="#{cadastroClienteBean.cliente.pessoaContacto}"/>
+	    		<p:outputLabel value="Telefone" for="tel"/>
+	    		<p:inputText id="tel" size="20" maxlength="20" value="#{cadastroClienteBean.cliente.telefone}"/>
+	    		<p:outputLabel value="Cell" for="cel"/>
+	    		<p:inputText id="cel" size="20" maxlength="20" value="#{cadastroClienteBean.cliente.cell}"/>
+	    		<p:outputLabel value="E-mail" for="email"/>
+	    		<p:inputText id="email" size="50" maxlength="100" value="#{cadastroClienteBean.cliente.email}"/>
+	    		<p:outputLabel value="Endereco" for="endereco"/>
+	    		<p:inputText id="endereco" size="80" maxlength="100" value="#{cadastroClienteBean.cliente.endereco}"/>		    		  			    		
+	    		
+	    		
+	    	</p:panelGrid>
+    	</h:form>
+    </ui:define>
+</ui:composition>

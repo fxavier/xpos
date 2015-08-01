@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	<p:panelGrid columns="4" style="width: 100%" columnClasses="rotulo, campo, rotulo, campo">
+		     <p:outputLabel value="Data da entrega" for="dataEntrega" />
+		      <p:calendar id="dataEntrega" size="10" pattern="dd/MM/yyyy"
+		     	value="#{cadastroFacturaBean.factura.dataEntrega}" disabled="#{cadastroFacturaBean.factura.naoAlteravel}" />
+		
+	<p:spacer />
+	<p:spacer />
+	    		<p:outputLabel value="Avenida/Rua" for="avenida"/>
+	    		<p:inputText id="avenida" size="80" maxlength="100" 
+	    		     value="#{cadastroFacturaBean.factura.enderecoEntrega.avenida}"
+	    		     disabled="#{cadastroFacturaBean.factura.naoAlteravel}" />
+	    		
+	    		<p:outputLabel value="Numero" for="numero"/>
+	    		<p:inputText id="numero" size="20" maxlength="80"
+	    		      value="#{cadastroFacturaBean.factura.enderecoEntrega.numero}"
+	    		      disabled="#{cadastroFacturaBean.factura.naoAlteravel}"/>
+	    			    			    		
+	    		<p:outputLabel value="Bairro" for="bairro"/>
+	    		<p:inputText id="bairro" size="40" maxlength="10" 
+	    		      value="#{cadastroFacturaBean.factura.enderecoEntrega.bairro}"
+	    		      disabled="#{cadastroFacturaBean.factura.naoAlteravel}"/>
+	    		<p:outputLabel value="Cidade" for="cidade"/>
+	    		<p:inputText id="cidade" size="20" maxlength="10" 
+	    		       value="#{cadastroFacturaBean.factura.enderecoEntrega.cidade}"
+	    		       disabled="#{cadastroFacturaBean.factura.naoAlteravel}"/>   		
+	    		<p:outputLabel value="Caixa Postal" for="caixapostal"/>
+	    		<p:inputText id="caixapostal" size="20" maxlength="20"
+	    		       value="#{cadastroFacturaBean.factura.enderecoEntrega.caixaPostal}"
+	    		       disabled="#{cadastroFacturaBean.factura.naoAlteravel}"/>
+	    		
+	  </p:panelGrid>
+  	
+</ui:composition>

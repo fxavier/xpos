@@ -1,0 +1,68 @@
+<ui:composition template="/WEB-INF/template/Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Pesquisa de fornecedores</ui:define>
+    
+    <ui:define name="corpo">
+    	<h:form id="frmPesquisa">
+	    	<h1>Pesquisa de fornecedores</h1>
+	    	
+	    	<p:messages autoUpdate="true" closable="true" />
+	    	
+	    	<p:toolbar style="margin-top: 20px">
+	    		<p:toolbarGroup>
+	    			<p:commandButton value="Pesquisar" action="#{pesquisaFornecedorBean.pesquisar}"
+	    				 />
+	    		</p:toolbarGroup>
+	    		<p:toolbarGroup align="right">
+	    			<p:button value="Novo" outcome="/fornecedor/CadastroFornecedor" />
+	    		</p:toolbarGroup>
+	    	</p:toolbar>
+	    	
+	    	<p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
+	    			columnClasses="rotulo, campo">
+	    		<p:outputLabel value="Nome da empresa" for="nome"/>
+	    		<p:inputText id="nome" size="20" value="#{pesquisaFornecedorBean.filtro.nome}" />
+	    		
+	    	</p:panelGrid>
+	    	
+	    	<p:dataTable id="produtosTable" value="#{pesquisaFornecedorBean.fornecedoresFiltrados}" var="fornecedor"
+	    		style="margin-top: 20px" emptyMessage="Nenhum fornecedor encontrado." rows="20"
+	    		paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+	    		<p:column headerText="Nome da empresa" style="text-align: center; width: 100px">
+	    			<h:outputText value="#{fornecedor.nome}" />
+	    		</p:column>
+	    		<p:column headerText="Pessoa do contacto">
+	    			<h:outputText value="#{fornecedor.pessoaContacto}" />
+	    		</p:column>
+	    		<p:column headerText="Tel" style="width: 250px">
+	    			<h:outputText value="#{fornecedor.telefone}"/>
+	    		</p:column>
+	    		<p:column headerText="Cell" style="width: 250px">
+	    			<h:outputText value="#{fornecedor.cell}"/>
+	    		</p:column>
+	    		<p:column headerText="E-mail" style="width: 250px">
+	    			<h:outputText value="#{fornecedor.email}"/>
+	    		</p:column>
+	    		<p:column headerText="Pais" style="width: 250px">
+	    			<h:outputText value="#{fornecedor.pais.descricao}"/>
+	    		</p:column>
+	    		<p:column headerText="Endereco" style="width: 250px">
+	    			<h:outputText value="#{fornecedor.endereco}"/>
+	    		</p:column>
+	    		<p:column style="width: 100px; text-align: center">
+	    			<p:button outcome="/fornecedor/CadastroFornecedor" icon="ui-icon-pencil" title="Editar">
+	    				<f:param name="fornecedor" value="#{fornecedor.id}" />
+	    			</p:button>
+	    			
+	    		</p:column>
+	    	</p:dataTable>
+	    	
+	    		    	
+    	</h:form>
+    </ui:define>
+</ui:composition>

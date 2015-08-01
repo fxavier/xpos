@@ -1,0 +1,40 @@
+<ui:composition template="/WEB-INF/template/Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:o="http://omnifaces.org/ui">
+
+	<f:metadata>
+		<o:viewParam name="factura" value="#{cadastroFacturaBean.factura}" />
+		<f:event listener="#{cadastroFacturaBean.inicializar}" type="preRenderView" />
+	</f:metadata>
+
+    <ui:define name="titulo">#{cadastroFacturaBean.editando ? 'Edicao da Factura' : 'Nova Factura'}</ui:define>
+    
+    <ui:define name="corpo">
+    	<h:form id="frmCadastro">
+	    	<h1>#{cadastroFacturaBean.editando ? 'Edicao da Factura' : 'Nova Factura'}</h1>
+	    
+	    	<p:messages autoUpdate="true" closable="true" />
+	    	
+	    	<ui:include src="/WEB-INF/template/factura/BotoesFactura.xhtml" />
+	    	    	
+	    	<ui:include src="/WEB-INF/template/factura/CapaFactura.xhtml" />
+	    	<p:tabView style="margin-top: 20px">
+	    		<p:tab title="Itens">
+	    			<ui:include src="/WEB-INF/template/factura/ItensFactura.xhtml" />
+	    		</p:tab>
+	    		<p:tab title="Dados de entrega">
+	    			<ui:include src="/WEB-INF/template/factura/DadosEntregaProduto.xhtml" />
+	    		</p:tab>
+	    		<p:tab title="Observação">
+	    			<ui:include src="/WEB-INF/template/factura/ObservacaoProduto.xhtml" />
+	    		</p:tab>
+	    	</p:tabView>	
+	    
+	    	
+    	</h:form>
+    </ui:define>
+</ui:composition>

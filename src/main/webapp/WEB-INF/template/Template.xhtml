@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="titulo"> Sistema de gestão de stocks e facturação</ui:insert></title>
+        <h:outputStylesheet library="css" name="sistema.css"/>
+    </h:head>
+    
+    <h:body>
+    
+    <p:ajaxStatus styleClass="ajax-status">
+			<f:facet name="start">
+				<h:graphicImage library="images" name="loading.gif"/> 
+			</f:facet>
+			<f:facet name="complete">
+				<h:outputText value=""/>
+			</f:facet>
+		</p:ajaxStatus>
+         <header>
+             <div>
+               <!--  <h:link> -->
+               <!--  <h:graphicImage library="images" name="chass1.png"/> -->
+               <!--  </h:link> -->
+            </div>
+            
+            <div style="float: right; margin-right: 110px">
+				<span style="float: left; height: 30px; line-height: 30px; margin-right: 60px">
+				Olá usuário!
+				</span>
+				
+				<h:form style="display: inline-block">
+					<p:menubar styleClass="menu-sistema">
+					    <p:submenu label="Configurações">
+					     <p:menuitem value="Funcionarios"  />
+					     <p:menuitem value="Perfis"  />
+					     <p:menuitem value="Permissões"  />
+						 <p:menuitem value="Usuários"  />
+							
+					    </p:submenu>
+						<p:submenu label="Cadastros">
+							<p:menuitem value="Categorias"  />
+							<p:menuitem value="subcategorias" />
+							<p:menuitem value="Items" outcome="/produtos/CadastroProduto" />
+							<p:menuitem value="Clientes" outcome="/cliente/CadastroCliente" />
+							<p:menuitem value="Fornecedores" outcome="/fornecedor/CadastroFornecedor" />
+																	
+																				
+						</p:submenu>
+						
+												
+						<p:submenu label="Entradas">
+							<p:menuitem value="Novos produtos" outcome="/entradas/EntradaProduto" />
+							<p:menuitem value="Devolucao" />
+							
+													
+						</p:submenu>
+						
+						<p:submenu label="Facturação">
+							<p:menuitem value="Cotação"  />
+							<p:menuitem value="Factura" outcome="/facturacao/CadastroFactura"/>
+							
+													
+						</p:submenu>
+						
+						
+						<p:submenu label="Relatorios">
+							
+						</p:submenu>
+						<p:menuitem value="Sair" outcome="/Home"/>
+					</p:menubar>
+				</h:form>
+			</div>
+			<div style="clear: both"></div>
+         </header>
+    
+    <div id="conteudo">
+      <ui:insert name="corpo"/>
+    </div>
+    <p:separator style="margin-top:20px"/>
+    
+     <footer>
+    <div align="center">
+       Sistema de gestão de Stocks e facturação|  © Copyright 2015 Todos os direitos reservados
+    </div>
+    </footer>
+    </h:body>
+    
+    
+ </html>   

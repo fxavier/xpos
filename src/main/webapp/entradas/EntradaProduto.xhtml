@@ -1,0 +1,53 @@
+<ui:composition template="/WEB-INF/template/Template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:o="http://omnifaces.org/ui">
+
+    <ui:define name="titulo">Novo Produto</ui:define>
+    
+    <ui:define name="corpo">
+    	    
+    	<h:form>
+	    	<h1>Nova Entrada</h1>
+	    	
+	    	<p:messages autoUpdate="true" closable="true" />
+	    	
+	    	<p:toolbar style="margin-top: 20px">
+	    		<p:toolbarGroup>
+	    			<p:button value="Novo" />
+	    			<p:commandButton value="Salvar" id="botaoSalvar"
+	    				/>
+	    		</p:toolbarGroup>
+	    		<p:toolbarGroup align="right">
+	    			<p:button value="Pesquisa"  />
+	    		</p:toolbarGroup>
+	    	</p:toolbar>
+	    	
+	    	<p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
+	    			columnClasses="rotulo, campo">
+	    		<p:outputLabel value="SKU" for="sku"/>
+	    		<p:inputText id="sku" size="20" maxlength="20" value="" />
+	    		
+	    		<p:outputLabel value="Quantidade" for="qtd"/>
+	    		<p:inputText id="qtd" size="20" maxlength="20" value="" />
+	    		
+	    		<p:outputLabel value="Fornecedor" for="fornecedor"/>
+	    		<p:selectOneMenu id="fornecedor" value="">
+	    			<f:selectItem itemLabel="Selecione o fornecedor"/>
+	    			
+	    		</p:selectOneMenu>	    		    		
+	    		
+	    		<p:outputLabel value="preco de compra" for="valorUnitario"/>
+	    		<p:inputText id="valorUnitario" size="10" maxlength="10" styleClass="moeda"
+	    			value="">
+	    			<!-- <f:convertNumber maxFractionDigits="2" minFractionDigits="2" /> -->
+	    		</p:inputText>
+	    		
+	    		
+	    	</p:panelGrid>
+    	</h:form>
+    </ui:define>
+</ui:composition>
