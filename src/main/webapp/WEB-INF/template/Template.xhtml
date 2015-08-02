@@ -31,12 +31,14 @@
             
             <div style="float: right; margin-right: 110px">
 				<span style="float: left; height: 30px; line-height: 30px; margin-right: 60px">
-				Olá usuário!
+				Olá #{seguranca.nomeUsuario}!
 				</span>
 				
 				<h:form style="display: inline-block">
 					<p:menubar styleClass="menu-sistema">
 					    <p:submenu label="Configurações">
+					     <p:menuitem value="Categorias"  />
+						 <p:menuitem value="subcategorias" />
 					     <p:menuitem value="Funcionarios"  />
 					     <p:menuitem value="Perfis"  />
 					     <p:menuitem value="Permissões"  />
@@ -44,9 +46,7 @@
 							
 					    </p:submenu>
 						<p:submenu label="Cadastros">
-							<p:menuitem value="Categorias"  />
-							<p:menuitem value="subcategorias" />
-							<p:menuitem value="Items" outcome="/produtos/CadastroProduto" />
+							<p:menuitem value="Produtos" outcome="/produtos/CadastroProduto" />
 							<p:menuitem value="Clientes" outcome="/cliente/CadastroCliente" />
 							<p:menuitem value="Fornecedores" outcome="/fornecedor/CadastroFornecedor" />
 																	
@@ -56,8 +56,7 @@
 												
 						<p:submenu label="Entradas">
 							<p:menuitem value="Novos produtos" outcome="/entradas/EntradaProduto" />
-							<p:menuitem value="Devolucao" />
-							
+														
 													
 						</p:submenu>
 						
@@ -72,7 +71,7 @@
 						<p:submenu label="Relatorios">
 							
 						</p:submenu>
-						<p:menuitem value="Sair" outcome="/Home"/>
+						<p:menuitem value="Sair" outcome="/Login"/>
 					</p:menubar>
 				</h:form>
 			</div>
